@@ -1,0 +1,5 @@
+faiss-cpu==1.10.0
+numpy==2.2.2
+pandas==2.2.3
+openai==1.61.1
+psycopg2-binary==2.9.10
