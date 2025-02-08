@@ -1,14 +1,25 @@
+import os
+
 import faiss
 import numpy as np
 import pandas as pd
 from openai import OpenAI
+from dotenv import load_dotenv
 
-# Set your OpenAI API key
-client = OpenAI(
-    api_key="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"
-)
+# Load environment variables from .env (for local development)
+load_dotenv()
 
-model = "gpt-3.5-turbo"
+# Fetch OpenAI API key from environment variables
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+
+# Ensure the key is loaded
+if not OPENAI_API_KEY:
+    raise ValueError("OpenAI API key not found! Make sure it's set in GitHub Secrets or .env")
+
+# OpenAI Client setup
+client = OpenAI(api_key=OPENAI_API_KEY)
+
+model = "gpt-4o"
 
 # Load the Pokémon dataset
 df = pd.read_csv("pokemon.csv")
