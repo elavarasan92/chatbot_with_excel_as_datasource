@@ -148,9 +148,9 @@ def generate_response(question):
     if "unique" in question.lower() and "projects" in question.lower():
         return unique_project_table(unique_projects)
 
-    '''if contains_keywords(question.lower()):
+    if contains_keywords(question.lower()):
         print("in defects")
-        return defect_percentage(relevant_data)'''
+        return defect_percentage(relevant_data)
 
 
     context = "\n".join([
